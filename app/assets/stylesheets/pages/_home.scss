@@ -1,1 +1,12 @@
 // Specific CSS for your home-page
+
+
+.flex-container {
+  display: flex;
+}
+.picture {
+  width: 617px;
+  height: 804px;
+  background-size: cover;
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), asset-url('landingCat.jpg');
+}
