@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'user/new'
+  get 'user/create'
+  get 'user/edit'
+  get 'user/update'
+  get 'user/destroy'
   get 'customer/new', to: 'customer#new'
   get 'customer/edit', to: 'customer#edit'
   devise_for :users
