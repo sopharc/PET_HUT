@@ -3,6 +3,13 @@ class CustomerController < ApplicationController
     @customer = Customer.new
   end
 
+  def create
+    @customer = Customer.new
+    @customer.save
+
+  end
+
+
   def edit
 
   end
