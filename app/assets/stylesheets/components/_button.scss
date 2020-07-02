@@ -1,0 +1,51 @@
+.button-light {
+  text-decoration: none;
+  padding: 8px 24px;
+  color: $beige;
+  border: 1px solid $beige;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: 0.5s;
+  &:hover {
+    text-decoration: none;
+    color: $dark-beige;
+    border: 1px solid $dark-beige;
+    transition: 0.5s;
+  }
+}
+
+.button-light-fill {
+  text-decoration: none;
+  padding: 8px 24px;
+  color: $beige;
+  border: 1px solid $beige;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: 0.5s;
+  &:hover {
+    text-decoration: none;
+    color: $white;
+    background-color: $beige;
+    border: 1px solid $beige;
+    transition: 0.5s;
+  }
+}
+
+.button-dark-fill {
+  text-decoration: none;
+  padding: 8px 24px;
+  color: $white;
+  background-color: $beige;
+  border: 1px solid $beige;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: 0.5s;
+  &:hover {
+    text-decoration: none;
+    color: $white;
+    background-color: $dark-beige;
+    border: 1px solid $dark-beige;
+    transition: 0.5s;
+  }
+}
+
