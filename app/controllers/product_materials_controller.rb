@@ -1,0 +1,2 @@
+class ProductMaterialsController < ApplicationController
+end
