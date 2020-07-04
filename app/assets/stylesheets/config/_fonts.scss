@@ -21,30 +21,29 @@ $headers-font: "Roboto", "Helvetica", "sans-serif";
 // Some question about accessibility and user controlling the size of their font
 
 :root {
-  font-size: 12px;
+  font-size: 10px;
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 576px) {
   :root {
-    font-size: 20px;
-  }
-}
-
-@media screen and (min-width: 992px) {
-  :root {
-    font-size: 18px;
+    font-size: 12px;
   }
 }
 
 @media screen and (min-width: 768px) {
   :root {
-    font-size: 16px;
-  }
-}
-
-@media screen and (min-width: 576px) {
-  :root {
     font-size: 14px;
   }
 }
 
+@media screen and (min-width: 992px) {
+  :root {
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  :root {
+    font-size: 18px;
+  }
+}
