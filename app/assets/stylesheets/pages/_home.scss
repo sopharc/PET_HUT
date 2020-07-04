@@ -3,24 +3,49 @@
 
 .flex-container {
   display: flex;
-  width: 80%;
+  width: 100rem;
   margin: 0 auto;
 }
 .picture {
-  width: 617px;
-  height: 804px;
+  width: 60rem;
+  height: 60rem;
   background-size: cover;
   background-image: asset-url('landingCat.jpg');
+  position: relative;
+}
+
+.words {
+  width: 40rem;
 }
 
 .beige-box {
   background-color: #EBDBCC;
-  height: 207px;
-  margin: 50px 0;
+  height: 18rem;
+  margin: 8rem 0;
 }
 
-h1 {
-  margin-top: 50px;
-  margin-left: -50px;
-  z-index: 5;
+h2 {
+  top: 15rem;
+  left: -20rem;
+  position: absolute;
+  width: 40rem;
+  font-size: 3rem;
 }
+
+.second-half {
+  color: $brown;
+  position: relative;
+  display: inline-block;
+  width: 20rem;
+  z-index: 1;
+  overflow: hidden;
+  height: 4rem;
+}
+
+.first-half {
+  color: $pale-beige;
+  display: block;
+  position: absolute;
+  width: 48rem;
+}
+
