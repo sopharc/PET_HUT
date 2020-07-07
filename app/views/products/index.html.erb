@@ -1,0 +1,43 @@
+<!-- pale-beige strip that drops down the centre of the page -->
+<div class="strip-container"></div>
+
+
+<div class="product-index-container">
+
+    <h4>All Products</h4>
+
+    <div class="product-cards-container">
+
+    <% @products.each do |shop| %>
+
+      <div class="single-product-card">
+
+        <!--  each image will take you to the product show page -->
+        <%= link_to product_path(product) do %>
+
+          <!-- show image from cloudinary using it's key. TO DO: Update transformations when we have images. -->
+          <%= cl_image_tag(product.photo.key, :transformation=>[{:width=>400, :crop=>"fill", :responsive => true}]) %>
+
+
+          <div class="product-text">
+
+            <!-- style - bold, uppercase -->
+            <p class="product-card-title"><%= product.name %></p>
+
+            <p>Лв.<%= product.price %></p>
+
+            <!-- TO DO: if there are more materials available, do -->
+            <p>More options available</p>
+
+          </div>
+
+        </div>
+
+      <% end %>
+
+    <% end %>
+
+  </div>
+
+</div>
+

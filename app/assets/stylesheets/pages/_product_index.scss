@@ -1,0 +1,38 @@
+.strip-container {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  height: 100vh;
+  width: 50vw;
+  background-color: $pale-beige;
+}
+
+.product-index-container {
+  position: relative;
+  z-index: 1;
+}
+
+.product-index-container h4 {
+  text-align: center;
+}
+
+.product-cards-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+/* Product name, price and options initially hidden */
+.product-text {
+  visibility: hidden;
+  transition: visibility 0.5s;
+}
+
+/* On hover, image fades so text can be read */
+.single-product-card:hover {
+  opacity: 50%;
+
+  .product-text {
+    visibility: visible;
+  }
+}
