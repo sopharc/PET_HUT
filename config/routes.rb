@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  root to: 'pages#home', as: :home
+  devise_for :users
+
+  resources :customers do
+    resources :orders do
+      resources :order_products
+
+  resources :addresses
+
+resources :components do
+  resources :products do
+    resources :product_materials, only: [:new, :create]
+
+
   get 'order/new'
   get 'order/create'
   get 'order/edit'
@@ -12,7 +26,7 @@ Rails.application.routes.draw do
   get 'customer/new', to: 'customer#new'
   get 'customer/edit', to: 'customer#edit'
   get 'components', to: 'pages#components'
-  devise_for :users
-  root to: 'pages#home', as: :home
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  end
+ end
 end
