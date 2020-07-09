@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+
+  resources :products, only: [:index, :show]
+
+  get 'components', to: 'pages#components'
+  devise_for :users
+
   root to: 'pages#home', as: :home
   devise_for :users
 
@@ -10,7 +16,6 @@ Rails.application.routes.draw do
 
   resources :components
 
-  resources :products
 
   get 'components', to: 'pages#components'
 
