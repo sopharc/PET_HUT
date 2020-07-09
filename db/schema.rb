@@ -12,6 +12,8 @@
 
 ActiveRecord::Schema.define(version: 2020_07_09_192652) do
 
+
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -57,6 +59,7 @@ ActiveRecord::Schema.define(version: 2020_07_09_192652) do
     t.index ["product_id"], name: "index_order_products_on_product_id"
   end
 
+
   create_table "orders", force: :cascade do |t|
     t.date "order_date"
     t.string "status"
@@ -66,6 +69,7 @@ ActiveRecord::Schema.define(version: 2020_07_09_192652) do
     t.bigint "customer_id"
     t.index ["customer_id"], name: "index_orders_on_customer_id"
   end
+
 
   create_table "product_materials", force: :cascade do |t|
     t.bigint "product_id", null: false
