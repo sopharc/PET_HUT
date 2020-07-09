@@ -1,0 +1,8 @@
+<div style="margin-left: 200px">
+  <h1><strong><em><%= @product.name %></strong></em></h1>
+  <h2><%= @product.category %></h2>
+  <p>£<%= @product.price %></p>
+  <p><strong>DESCRIPTION</strong> <%= @product.description %></p>
+  <p><strong>DIMENSIONS</strong> <%= @product.dimensions %> </p>
+  <%= link_to "Back to all products", products_path %>
+</div>

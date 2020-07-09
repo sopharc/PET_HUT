@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   ActiveAdmin.routes(self)
   get 'order/new'
   get 'order/create'
@@ -12,8 +13,24 @@ Rails.application.routes.draw do
   get 'user/destroy'
   get 'customer/new', to: 'customer#new'
   get 'customer/edit', to: 'customer#edit'
+
+
+  resources :products, only: [:index, :show]
+
   get 'components', to: 'pages#components'
-  devise_for :users
+
   root to: 'pages#home', as: :home
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  devise_for :users
+
+  resources :customers
+
+  resources :orders
+
+  resources :addresses
+
+  resources :components
+
+
+  get 'components', to: 'pages#components'
+
 end
