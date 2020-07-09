@@ -79,14 +79,6 @@ ActiveRecord::Schema.define(version: 2020_07_07_200739) do
     t.index ["customer_id"], name: "index_orders_on_customer_id"
   end
 
-  create_table "product_materials", force: :cascade do |t|
-    t.bigint "product_id", null: false
-    t.bigint "component_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["component_id"], name: "index_product_materials_on_component_id"
-    t.index ["product_id"], name: "index_product_materials_on_product_id"
-  end
 
   create_table "product_materials", force: :cascade do |t|
     t.bigint "product_id", null: false
