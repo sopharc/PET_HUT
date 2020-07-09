@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_04_094344) do
+ActiveRecord::Schema.define(version: 2020_07_07_200739) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,21 +38,42 @@ ActiveRecord::Schema.define(version: 2020_07_04_094344) do
   end
 
   create_table "customers", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "phone_number"
+    t.string "phone_number"
     t.string "first_name"
     t.string "last_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_customers_on_user_id"
+  end
+
+  create_table "order_products", force: :cascade do |t|
+    t.integer "quantity"
+    t.bigint "product_id", null: false
+    t.bigint "order_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id"], name: "index_order_products_on_order_id"
+    t.index ["product_id"], name: "index_order_products_on_product_id"
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "customer_id"
     t.date "order_date"
     t.string "status"
     t.date "dispatch_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "customer_id"
+    t.index ["customer_id"], name: "index_orders_on_customer_id"
+  end
+
+  create_table "product_materials", force: :cascade do |t|
+    t.bigint "product_id", null: false
+    t.bigint "component_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["component_id"], name: "index_product_materials_on_component_id"
+    t.index ["product_id"], name: "index_product_materials_on_product_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -78,4 +99,10 @@ ActiveRecord::Schema.define(version: 2020_07_04_094344) do
   end
 
   add_foreign_key "addresses", "customers"
+  add_foreign_key "customers", "users"
+  add_foreign_key "order_products", "orders"
+  add_foreign_key "order_products", "products"
+  add_foreign_key "orders", "customers"
+  add_foreign_key "product_materials", "components"
+  add_foreign_key "product_materials", "products"
 end
