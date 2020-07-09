@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  ActiveAdmin.routes(self)
   get 'order/new'
   get 'order/create'
   get 'order/edit'
