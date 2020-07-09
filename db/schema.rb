@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2020_07_07_200739) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +59,16 @@ ActiveRecord::Schema.define(version: 2020_07_07_200739) do
     t.index ["product_id"], name: "index_order_products_on_product_id"
   end
 
+  create_table "order_products", force: :cascade do |t|
+    t.integer "quantity"
+    t.bigint "product_id", null: false
+    t.bigint "order_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id"], name: "index_order_products_on_order_id"
+    t.index ["product_id"], name: "index_order_products_on_product_id"
+  end
+
   create_table "orders", force: :cascade do |t|
     t.date "order_date"
     t.string "status"
@@ -65,6 +77,15 @@ ActiveRecord::Schema.define(version: 2020_07_07_200739) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "customer_id"
     t.index ["customer_id"], name: "index_orders_on_customer_id"
+  end
+
+  create_table "product_materials", force: :cascade do |t|
+    t.bigint "product_id", null: false
+    t.bigint "component_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["component_id"], name: "index_product_materials_on_component_id"
+    t.index ["product_id"], name: "index_product_materials_on_product_id"
   end
 
   create_table "product_materials", force: :cascade do |t|
