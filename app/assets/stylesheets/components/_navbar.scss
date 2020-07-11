@@ -1,6 +1,11 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  width: 100vw;
+  // position: fixed;
+  // top: 0;
+  // left: 0;
+  // z-index: 1;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -18,7 +23,20 @@ section.navbar-mid {
   align-items: center;
 }
 
-.nav-link {
-  color: #000000;
+// Positioning for icons on right of navbar
+section.navbar-end, ul.navbar-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+// Removes border around 'Menu' button
+div.navbar-toggler {
+  border: none;
+}
+
+// Padding between icons for mobile
+ul.navbar-nav .nav-link {
+  padding: 0 0 0 1rem;
 }
 

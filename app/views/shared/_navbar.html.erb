@@ -1,61 +1,79 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
 
+  <!-- logo on left of navbar -->
+
   <section class="navbar-left">
-    <%= link_to "#", class: "navbar-brand" do %>
+    <%= link_to home_path, class: "navbar-brand" do %>
       <%= image_tag "logo.png" %>
     <% end %>
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
   </section>
 
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-  <section class="navbar-mid">
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+    <!-- middle of navbar - Home Shop Blog Contact -->
+
+    <section class="navbar-mid">
       <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <%= link_to "Home", home_path, class: "nav-link active" %>
+        </li>
+
+        <li class="nav-item">
+          <%= link_to "Shop", products_path, class: "nav-link" %>
+        </li>
+
+        <li class="nav-item">
+          <%=  link_to "Blog", "#", class: "nav-link" %>
+        </li>
+
+        <li class="nav-item">
+          <%= link_to "Contact us", "#", class: "nav-link" %>
+        </li>
+
+      </ul>
+    </section>
+  </div>
+
+
+
+  <!-- end of navbar with user sign-in and basket -->
+
+  <section class="navbar-end">
+
+    <div class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span>Menu</span>
+    </div>
+
+    <div class="navbar-icons">
+
+      <ul class="navbar-nav mr-auto">
+
         <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
-          </li>
+
           <li class="nav-item dropdown">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= link_to "", new_user_session_path, class: "nav-link fas fa-user avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false  %>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
+              <%= link_to "Order History", orders_path, class: "dropdown-item" %>
+              <%= link_to "My Account", "#", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
+
+
         <% else %>
 
-        <section class="navbar-mid">
-          <li class="nav-item">
-            <%= link_to "Home", home_path, class: "nav-link" %>
+          <li>
+            <%= link_to "", new_user_session_path, class: "nav-link far fa-user" %>
           </li>
-          <li class="nav-item">
-            <%= link_to "Shop", products_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%=  link_to "Blog", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Contact us", "#", class: "nav-link" %>
-          </li>
-        </section>
-
-
 
         <% end %>
+
       </ul>
+
     </div>
-    </section>
 
-    <section class="navbar-end">
-      <%= link_to "", new_user_session_path, class: "nav-link far fa-user" %>
-    </section>
-
+  </section>
 
 </div>
