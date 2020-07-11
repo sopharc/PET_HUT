@@ -10,3 +10,15 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+// Styling for 'Home, Shop, Blog, Contact us'
+section.navbar-mid {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.nav-link {
+  color: #000000;
+}
+
