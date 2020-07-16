@@ -1,13 +1,28 @@
 class CustomerController < ApplicationController
+
+skip_before_action :authenticate_user!, only: [:new]
+
   def new
     @customer = Customer.new
+    authorize @customer
   end
+
+  def show
+    authorize @customer
+  end
+
 
   def create
     @customer = Customer.new(customer_params)
-    @customer.save
+    @customer.user = current_user
 
-    redirect_to home_path
+    authorize @customer
+
+    if @customer.save
+      redirect_to @customer, notice: 'Account successfully created!'
+    else
+      render :new
+    end
   end
 
   def edit
