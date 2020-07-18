@@ -2,17 +2,14 @@ class OrdersController < ApplicationController
 before_action :set_customer, only: [:index, :new, :create]
 
   def index
-    @customer = Customer.find(params[:customer_id])
     @orders = @customer.orders
   end
 
   def new
     @order = Order.new
-    @customer = Customer.find(params[:customer_id])
   end
 
   def create
-    @customer = Customer.find(params[:customer_id])
     @order = Order.new(order_params)
     @order.customer = @customer
     @order.user = current_user
