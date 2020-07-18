@@ -1,4 +1,4 @@
-class OrderController < ApplicationController
+class OrdersController < ApplicationController
 
   def index
     @customer = Customer.find(params[:customer_id])
@@ -7,13 +7,19 @@ class OrderController < ApplicationController
 
   def new
     @order = Order.new
+    @customer = Customer.find(params[:customer_id])
   end
 
   def create
+    @customer = Customer.find(params[:customer_id])
     @order = Order.new(order_params)
-    @order.save
-
-    redirect_to order_path
+    @order.customer = @customer
+    @order.user = current_user
+    if @order.save
+      redirect_to order_path(@order)
+    else
+      render :new
+    end
   end
 
   def edit

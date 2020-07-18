@@ -22,11 +22,10 @@ Rails.application.routes.draw do
   root to: 'pages#home', as: :home
   devise_for :users
 
-  resources :customers
-
-  resources :orders
-
-  resources :addresses
+  resources :customers do
+    resources :orders
+    resources :addresses, only: [:index, :new, :create, :edit, :update, :destroy]
+  end
 
   resources :components
 
