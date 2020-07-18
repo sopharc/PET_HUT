@@ -1,7 +1,7 @@
-class OrderController < ApplicationController
+class OrdersController < ApplicationController
+before_action :set_customer, only: [:index, :new, :create]
 
   def index
-    @customer = Customer.find(params[:customer_id])
     @orders = @customer.orders
   end
 
@@ -11,9 +11,13 @@ class OrderController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-    @order.save
-
-    redirect_to order_path
+    @order.customer = @customer
+    @order.user = current_user
+    if @order.save
+      redirect_to order_path(@order)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -36,5 +40,9 @@ class OrderController < ApplicationController
 
   def order_params
     params.require(:order).permit(:customer_id, :order_date, :status, :dispatch_date)
+  end
+  
+  def set_customer
+    @customer = Customer.find(params[:customer_id])
   end
 end
