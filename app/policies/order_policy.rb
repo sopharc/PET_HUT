@@ -9,20 +9,28 @@ class OrderPolicy < ApplicationPolicy
     true
   end
 
-  def destroy?
-    true
-  end
+  # edit calls update in the application controller so not needed
 
-  def edit?
-    true
-  end
+  # def edit?
+  #   # if the user is the owner of the order then true
+  #   # otherwise false
+  #   # user = current_user
+  #   # record = @order (argument passed to authorize)
+  #  user == record.user
+  # end
+
 
   def new?
     true
   end
 
   def update?
-    true
+    user == record.user || user.admin
+  end
+
+  def destroy?
+    # needs to be updated to only admin
+    user == user.admin
   end
 
 end
