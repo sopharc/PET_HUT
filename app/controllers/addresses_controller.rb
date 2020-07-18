@@ -1,8 +1,9 @@
 class AddressesController < ApplicationController
   before_action :set_customer
+  before_action :set_address, only: [:edit, :update, :destroy]
 
   def index
-    @addresses = Customer.where(customer: @customer.id)
+    @addresses = Customer.where(customer: @customer)
   end
 
   def new
@@ -20,16 +21,13 @@ class AddressesController < ApplicationController
   end
 
   def edit
-    @address = Address.find(params[:id])
   end
 
   def update
-    @address = Address.find(params[:id])
     @address.update(address_params)
   end
 
   def destroy
-    @address = Address.find(params[:id])
     @address.destroy
     redirect_to customer_path(@customer)
   end
@@ -42,5 +40,9 @@ class AddressesController < ApplicationController
 
   def set_customer
     @customer = Customer.find(params[:customer_id])
+  end
+  
+  def set_address
+    @address = Address.find(params[:id])
   end
 end
