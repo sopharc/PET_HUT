@@ -2,6 +2,7 @@ class OrderPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
+      # need to update to .where user = record.user or admin
     end
   end
 
