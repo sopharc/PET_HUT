@@ -1,4 +1,4 @@
-class CustomerController < ApplicationController
+class CustomersController < ApplicationController
 
 skip_before_action :authenticate_user!, only: [:new]
 
@@ -19,6 +19,7 @@ skip_before_action :authenticate_user!, only: [:new]
     authorize @customer
 
     if @customer.save
+      customer[:user_id] = user.id
       redirect_to @customer, notice: 'Account successfully created!'
     else
       render :new
