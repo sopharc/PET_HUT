@@ -1,0 +1,7 @@
+<h1>Customer New</h1>
+<%= simple_form_for [ @user, @customer ] do |f| %>
+  <%= f.input :first_name, as: :string %>
+  <%= f.input :last_name, as: :string %>
+  <%= f.input :phone_number, as: :string %>
+  <%= f.button :submit, 'Create Account', class: "btn-show" %>
+<% end %>
