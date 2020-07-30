@@ -1,4 +1,4 @@
-class CustomerController < ApplicationController
+class CustomersController < ApplicationController
 
 skip_before_action :authenticate_user!, only: [:new]
 
@@ -14,12 +14,12 @@ skip_before_action :authenticate_user!, only: [:new]
 
   def create
     @customer = Customer.new(customer_params)
-    @customer.user = current_user
+    @customer.user_id = current_user
 
     authorize @customer
 
     if @customer.save
-      redirect_to @customer, notice: 'Account successfully created!'
+      redirect_to products_path, notice: 'Account successfully created!'
     else
       render :new
     end

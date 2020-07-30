@@ -20,7 +20,11 @@ Rails.application.routes.draw do
   get 'components', to: 'pages#components'
 
   root to: 'pages#home', as: :home
-  devise_for :users
+
+  devise_for :users, controllers: { registrations: 'users/registrations' }
+
+  devise_for :users, skip: :all
+
 
   resources :customers do
     resources :orders
