@@ -4,5 +4,6 @@
   <p>£<%= @product.price %></p>
   <p><strong>DESCRIPTION</strong> <%= @product.description %></p>
   <p><strong>DIMENSIONS</strong> <%= @product.dimensions %> </p>
+  <%= @product.category %><BR>
   <%= link_to "Back to all products", products_path %>
 </div>
