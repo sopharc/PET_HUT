@@ -2,6 +2,16 @@ crumb :root do
   link "Home", home_path
 end
 
+crumb :products do
+  link "Products", products_path
+end
+
+crumb :product do |product|
+  link product.name, products_path(product)
+  parent :products
+end
+
+
 # crumb :projects do
 #   link "Projects", projects_path
 # end
