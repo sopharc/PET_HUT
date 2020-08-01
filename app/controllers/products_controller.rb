@@ -2,7 +2,9 @@ class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show ]
 
   def index
-    if params[:query].present?
+    # @filter = params[:query] if params.has_key?(:query)
+
+    if params.has_key?(:query)
       @products = Product.where(category: params[:query])
     else
       @products = Product.all
@@ -11,6 +13,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    authorize Product
   end
 
   private
