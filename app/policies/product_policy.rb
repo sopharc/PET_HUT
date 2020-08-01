@@ -1,16 +1,26 @@
 class ProductPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+
+      if @filter.present?
+        scope.where(category: @filter)
+      else
+        scope.all
+      end
     end
   end
 
   def index?
-    true
+    filter
   end
 
   def show?
     true
+  end
+
+  private
+  def filter
+    @filter = params[:query] if params.has_key?(:query)
   end
 
 end

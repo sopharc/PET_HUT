@@ -4,7 +4,7 @@
 
 
 <%= form_with url: products_path, method: :get do %>
-  <%= select_tag :query, options_for_select(@products.map {|p| [ p.category ]}.uniq, "category"), include_blank: true %>
+  <%= select_tag :query, options_for_select(Product.all.map {|p| [ p.category ]}.uniq, "category"), include_blank: true %>
   <%= submit_tag "Filter" %>
 <% end %>
 
