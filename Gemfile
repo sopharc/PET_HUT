@@ -38,7 +38,7 @@ gem 'pundit'
 gem 'cancancan'
 gem 'draper'
 
-gem 'pundit'
+gem 'gretel'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
