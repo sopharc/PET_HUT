@@ -12,9 +12,7 @@ crumb :product do |product|
 end
 
 
-# crumb :projects do
-#   link "Projects", projects_path
-# end
+
 
 # crumb :project do |project|
 #   link project.name, project_path(project)
