@@ -1,14 +1,15 @@
 class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show ]
+  after_action :verify_policy_scoped, only: :index
 
   def index
     # @filter = params[:query] if params.has_key?(:query)
-
-    if params.has_key?(:query)
-      @products = Product.where(category: params[:query])
-    else
-      @products = Product.all
-    end
+    @products = policy_scope(Product)
+    # if params.has_key?(:query)
+    #   @products = Product.where(category: params[:query])
+    # else
+    #   @products = Product.all
+    # end
   end
 
   def show
