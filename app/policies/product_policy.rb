@@ -1,12 +1,7 @@
 class ProductPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-
-      if @filter.present?
-        scope.where(category: @filter)
-      else
-        scope.all
-      end
+      scope.all
     end
   end
 
