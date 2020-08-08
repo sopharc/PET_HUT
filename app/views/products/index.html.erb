@@ -1,4 +1,7 @@
+<% breadcrumb :products %>
+
 <h1>Product#index</h1>
+
 
 <%= form_with url: products_path, method: :get do %>
   <%= select_tag :query, options_for_select(Product.all.map {|p| [ p.category ]}.uniq, "category"), include_blank: true %>

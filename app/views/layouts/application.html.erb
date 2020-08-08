@@ -12,6 +12,9 @@
   </head>
 
   <body>
+
+    <%= breadcrumbs pretext: "You are here: ", display_single_fragment: true, style: :bootstrap, separator: '/', link_current: true %>
+
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
 
