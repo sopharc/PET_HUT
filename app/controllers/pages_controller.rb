@@ -5,6 +5,7 @@ class PagesController < ApplicationController
 
 
   def home
+    true
   end
 
   def components
