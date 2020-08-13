@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_09_195317) do
+ActiveRecord::Schema.define(version: 2020_08_13_190854) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,11 @@ ActiveRecord::Schema.define(version: 2020_07_09_195317) do
     t.index ["customer_id"], name: "index_addresses_on_customer_id"
   end
 
+  create_table "carts", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "components", force: :cascade do |t|
     t.string "name"
     t.string "material"
@@ -59,6 +64,14 @@ ActiveRecord::Schema.define(version: 2020_07_09_195317) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_customers_on_user_id"
+  end
+
+  create_table "line_items", force: :cascade do |t|
+    t.bigint "product_id", null: false
+    t.bigint "cart_id", null: false
+    t.integer "quantity", default: 1
+    t.index ["cart_id"], name: "index_line_items_on_cart_id"
+    t.index ["product_id"], name: "index_line_items_on_product_id"
   end
 
   create_table "order_products", force: :cascade do |t|
@@ -115,6 +128,8 @@ ActiveRecord::Schema.define(version: 2020_07_09_195317) do
 
   add_foreign_key "addresses", "customers"
   add_foreign_key "customers", "users"
+  add_foreign_key "line_items", "carts"
+  add_foreign_key "line_items", "products"
   add_foreign_key "order_products", "orders"
   add_foreign_key "order_products", "products"
   add_foreign_key "orders", "customers"

@@ -1,0 +1,19 @@
+<h1>Cart#show</h1>
+<div>
+  <%= link_to 'Keep shopping', products_path %>
+</div>
+
+<section>
+  <%= render(@cart.line_items) %>
+
+  <div>
+    <div>
+      <%= button_to 'Empty Cart', @cart, method: :delete, data: { confirm: "Are you sure?"} %>
+    </div>
+    <div>
+      <h4>
+        <span>Total:</span> <%= number_to_currency(@cart.total_price) %>
+      </h4>
+    </div>
+  </div>
+</section>
