@@ -1,0 +1,14 @@
+<div>
+  <div>
+    <%= line_item.quantity %>
+  </div>
+  <div>
+    <%= line_item.product.name %>
+    <br>
+    <%= number_to_currency(line_item.total_price) %>
+  </div>
+</div>
+
+<div>
+  <%= link_to 'Remove Item', line_item, method: :delete, data: { confirm: "Are you sure?"} %>
+</div>

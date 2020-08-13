@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   ActiveAdmin.routes(self)
   get 'order/new'
   get 'order/create'
@@ -13,6 +14,9 @@ Rails.application.routes.draw do
   get 'user/destroy'
   get 'customer/new', to: 'customer#new'
   get 'customer/edit', to: 'customer#edit'
+
+  resources :carts
+  resources :line_items
 
 
   resources :products, only: [:index, :show]
@@ -32,8 +36,5 @@ Rails.application.routes.draw do
   end
 
   resources :components
-
-
-  get 'components', to: 'pages#components'
 
 end
