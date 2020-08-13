@@ -13,7 +13,11 @@
 
   <body>
 
-    <%= breadcrumbs pretext: "You are here: ", display_single_fragment: true, style: :bootstrap, separator: '/', link_current: true %>
+    <% unless current_page?(home_path)%>
+      <div class= "breadcrumbs">
+        <%= breadcrumbs pretext: "You are here: ", display_single_fragment: true, style: :bootstrap, separator: '/', link_current: true %>
+      </div>
+    <% end %>
 
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
