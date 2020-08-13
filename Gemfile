@@ -39,6 +39,7 @@ gem 'cancancan'
 gem 'draper'
 
 gem 'gretel'
+gem 'pg_search'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'

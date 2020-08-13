@@ -7,7 +7,7 @@ crumb :products do
 end
 
 crumb :product do |product|
-  link product.name, products_path(product)
+  link product.name, product_path(product)
   parent :products
 end
 
