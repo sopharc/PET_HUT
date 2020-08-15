@@ -13,6 +13,7 @@ end
 
 crumb :cart do |cart|
   link "Cart", cart_path(cart)
+  parent :products
 end
 
 # If you want to split your breadcrumbs configuration over multiple files, you
