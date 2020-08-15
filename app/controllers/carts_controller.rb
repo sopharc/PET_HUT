@@ -1,8 +1,7 @@
 class CartsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :invallid_cart
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only: [ :index, :show ]
-  after_action :verify_policy_scoped, only: :index
+  skip_before_action :authenticate_user!, only: [ :index ]
 
 
   def show
@@ -22,7 +21,7 @@ class CartsController < ApplicationController
   def destroy
     @cart.destroy if @cart.id == session[:cart_id]
     session[:cart_id] = nil
-    redirect_to carts_url
+    redirect_to products_url
     authorize @cart
   end
 
