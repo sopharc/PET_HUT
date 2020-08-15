@@ -1,9 +1,8 @@
 class LineItemsController < ApplicationController
   include CurrentCart
-  before_action :set_line_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_line_item, only: [:edit, :update, :destroy]
   before_action :set_cart, only: [:create]
-  skip_before_action :authenticate_user!, only: [ :index, :show ]
-  after_action :verify_policy_scoped, only: :index
+
 
   def new
     @line_item = LineItem.new
@@ -32,6 +31,10 @@ class LineItemsController < ApplicationController
   private
 
    def line_item_params
-    params.require(:line_item).permit(:instrument_id)
+    params.require(:line_item).permit(:product_id)
+   end
+
+   def set_line_item
+    @line_item = LineItem.find(params[:id])
    end
 end

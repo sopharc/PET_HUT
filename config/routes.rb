@@ -15,8 +15,8 @@ Rails.application.routes.draw do
   get 'customer/new', to: 'customer#new'
   get 'customer/edit', to: 'customer#edit'
 
-  resources :carts
-  resources :line_items
+  resources :carts, only: [:new, :create, :show, :destroy]
+  resources :line_items, only: [:new, :create, :destroy]
 
 
   resources :products, only: [:index, :show]
