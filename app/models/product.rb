@@ -10,6 +10,13 @@ class Product < ApplicationRecord
   # scope for product index to allow filtering
   scope :filter_by_category, -> (category) { where category: category }
 
+  include PgSearch::Model
+  pg_search_scope :search_by_name,
+    against: [ :name, :syllabus ],
+    using: {
+      tsearch: { prefix: true }
+    }
+
   private
 
   def not_referenced_by_any_line_item

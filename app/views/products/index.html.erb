@@ -8,6 +8,19 @@
   <%= submit_tag "Filter" %>
 <% end %>
 
+<!-- Search  -->
+
+<%= form_tag products_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a product"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+
+<!-- Filter -->
+
 <% @products.each do |product| %>
   <div>
     <%= link_to product.name, product %>
