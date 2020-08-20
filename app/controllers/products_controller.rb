@@ -4,12 +4,17 @@ class ProductsController < ApplicationController
 
   def index
     # @filter = params[:query] if params.has_key?(:query)
-    @products = policy_scope(Product)
+
+    # @products = policy_scope(Product)
+
     # if params.has_key?(:query)
     #   @products = Product.where(category: params[:query])
     # else
     #   @products = Product.all
     # end
+
+    @products = policy_scope(Product)
+
   end
 
   def show

@@ -11,6 +11,15 @@ class Product < ApplicationRecord
   # scope for product index to allow filtering
   scope :filter_by_category, -> (category) { where category: category }
 
+  include PgSearch::Model
+  pg_search_scope :global_search,
+    against: [ :category, :syllabus ],
+    associated_against: {
+      description: [ ]
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
 
   private
 
