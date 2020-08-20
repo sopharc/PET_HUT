@@ -3,6 +3,7 @@ class Product < ApplicationRecord
   has_many :order_products
   has_many :line_items
   before_destroy :not_referenced_by_any_line_item
+  monetize :price_cents
   # has_many :orders, through :order_products
 
   # has_many :components, through: :product_materials

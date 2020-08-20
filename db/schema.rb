@@ -115,11 +115,12 @@ ActiveRecord::Schema.define(version: 2020_08_18_191735) do
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.string "category"
-    t.float "price"
     t.text "description"
     t.string "dimensions"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "price_cents", default: 0, null: false
+    t.string "price_currency", default: "EUR", null: false
   end
 
   create_table "users", force: :cascade do |t|
