@@ -6,16 +6,10 @@ class ProductPolicy < ApplicationPolicy
   end
 
   def index?
-    filter
   end
 
   def show?
     true
-  end
-
-  private
-  def filter
-    @filter = params[:query] if params.has_key?(:query)
   end
 
 end
