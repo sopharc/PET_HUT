@@ -11,8 +11,11 @@ class Product < ApplicationRecord
   scope :filter_by_category, -> (category) { where category: category }
 
   include PgSearch::Model
-  pg_search_scope :search_by_name,
-    against: [ :name, :syllabus ],
+  pg_search_scope :global_search,
+    against: [ :category, :syllabus ],
+    associated_against: {
+      description: [ ]
+    },
     using: {
       tsearch: { prefix: true }
     }
