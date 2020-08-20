@@ -12,7 +12,7 @@
     </div>
     <div>
       <h4>
-        <span>Total:</span> <%= number_to_currency(@cart.total_price) %>
+        <span>Total:</span> <%= humanized_money_with_symbol(@cart.total_price) %>
       </h4>
     </div>
   </div>

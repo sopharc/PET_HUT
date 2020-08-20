@@ -55,7 +55,7 @@ puts 'making the products, the elves might take a while...'
 5.times do
   product = Product.create!(name: Faker::Games::WarhammerFantasy.hero,
     category: categories[rand(0..2).round],
-    price: rand(10.3..50.7).round(2),
+    price_cents: rand(100..500),
     description: Faker::Movies::Ghostbusters.quote,
     dimensions: "#{rand(10..50)}x#{rand(10..50)}x#{rand(10..50)}"
     )

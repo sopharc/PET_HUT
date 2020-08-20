@@ -4,6 +4,6 @@ class LineItem < ApplicationRecord
 
   # total helper from vid, needs improving
   def total_price
-    product.price.to_i * quantity.to_i
+    product.price * quantity
   end
 end

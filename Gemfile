@@ -41,6 +41,11 @@ gem 'draper'
 gem 'gretel'
 gem 'pg_search'
 
+# payment related, money for calculations, stripe for payment
+gem 'money-rails', '~>1.12'
+gem 'stripe'
+gem 'stripe_event'
+
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'

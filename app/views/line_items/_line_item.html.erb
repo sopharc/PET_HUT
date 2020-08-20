@@ -5,7 +5,7 @@
   <div>
     <%= line_item.product.name %>
     <br>
-    <%= number_to_currency(line_item.total_price) %>
+    <%= humanized_money_with_symbol(line_item.total_price) %>
   </div>
 </div>
 
