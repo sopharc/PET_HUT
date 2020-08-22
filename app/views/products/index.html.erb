@@ -2,13 +2,14 @@
 
 <h1>Product#index</h1>
 
+<!-- Filter  -->
 
 <%= form_with url: products_path, method: :get do %>
-  <%= select_tag :query, options_for_select(Product.all.map {|p| [ p.category ]}.uniq, "category"), include_blank: true %>
+  <%= select_tag :query, options_for_select(@categories, "category"), include_blank: true %>
   <%= submit_tag "Filter" %>
 <% end %>
 
-<!-- Search  -->
+<!-- Search -->
 
 <%= form_tag products_path, method: :get do %>
   <%= text_field_tag :query,
@@ -19,7 +20,7 @@
   <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
 
-<!-- Filter -->
+<!-- Page -->
 
 <% @products.each do |product| %>
   <div>

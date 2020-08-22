@@ -11,15 +11,22 @@ class Product < ApplicationRecord
   # scope for product index to allow filtering
   scope :filter_by_category, -> (category) { where category: category }
 
+
+  # Vladi: Not sure why the associated bit, so commented out
+  # Also just did search against name, but you can add category or whatever else
   include PgSearch::Model
   pg_search_scope :global_search,
-    against: [ :category, :syllabus ],
-    associated_against: {
-      description: [ ]
-    },
+    against: [ :name ],
+    # associated_against: {
+    #   description: [ ]
+    # },
     using: {
       tsearch: { prefix: true }
     }
+
+  def self.all_categories
+    all.map {|p| [ p.category ]}.uniq
+  end
 
   private
 
@@ -29,5 +36,4 @@ class Product < ApplicationRecord
       throw :abort
     end
   end
-
 end

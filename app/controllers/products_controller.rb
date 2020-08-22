@@ -5,25 +5,21 @@ class ProductsController < ApplicationController
   def index
     # @filter = params[:query] if params.has_key?(:query)
 
-    # @products = policy_scope(Product)
-
-    # if params.has_key?(:query)
-    #   @products = Product.where(category: params[:query])
-    # else
-    #   @products = Product.all
-    # end
-
-    @products = policy_scope(Product)
-
+    if params.has_key?(:query) && params[:query] != ""
+      @products = policy_scope(Product).global_search(search_params)
+    else
+      @products = policy_scope(Product)
+    end
+    @categories = policy_scope(Product).all_categories
   end
 
   def show
     @product = Product.find(params[:id])
-    authorize Product
+    authorize @product
   end
 
   private
   def search_params
-    params.require(:product).permit(:query)
+    params.permit(:query)
   end
 end
