@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
     # @filter = params[:query] if params.has_key?(:query)
 
     if params.has_key?(:query) && params[:query] != ""
-      @products = policy_scope(Product).global_search(search_params)
+      @products = policy_scope(Product).global_search(search_params[:query])
     else
       @products = policy_scope(Product)
     end
