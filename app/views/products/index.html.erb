@@ -4,8 +4,8 @@
 
 <!-- Filter  -->
 
-<%= form_with url: products_path, method: :get do %>
-  <%= select_tag :query, options_for_select(@categories, "category"), include_blank: true %>
+<%= form_tag products_path, method: :get do %>
+  <%= select_tag :filter, options_for_select(@categories, "category"), include_blank: true %>
   <%= submit_tag "Filter" %>
 <% end %>
 

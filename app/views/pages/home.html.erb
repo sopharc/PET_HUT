@@ -5,9 +5,17 @@
     <div class="beige-box">
     </div>
 
-    <input type="text">
-    <button>Search</button>
+    <%= form_tag products_path, method: :get do %>
+     <%= text_field_tag :query,
+       params[:query],
+         class: "form-control",
+         placeholder: "Find a product"
+       %>
+     <%= submit_tag "Search", class: "btn btn-primary" %>
+   <% end %>
+
   </div>
+
   <div class="picture">
     <h2 class="split-header">
       <span class="first-half">Discover our pet furniture options</span>

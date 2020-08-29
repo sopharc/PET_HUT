@@ -3,10 +3,10 @@ class ProductsController < ApplicationController
   after_action :verify_policy_scoped, only: :index
 
   def index
-    # @filter = params[:query] if params.has_key?(:query)
-
     if params.has_key?(:query) && params[:query] != ""
       @products = policy_scope(Product).global_search(search_params[:query])
+    elsif params.has_key?(:filter)
+      @products = policy_scope(Product).where(category: search_params[:filter])
     else
       @products = policy_scope(Product)
     end
@@ -20,6 +20,6 @@ class ProductsController < ApplicationController
 
   private
   def search_params
-    params.permit(:query)
+    params.permit(:query, :filter)
   end
 end
