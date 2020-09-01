@@ -16,7 +16,7 @@ class LineItemsController < ApplicationController
     @line_item = @cart.add_product(product)
 
     if @line_item.save
-      redirect_to @line_item.cart, notice: 'Item added to cart'
+      redirect_to cart_path(@cart), notice: 'Item added to cart'
     else
       render :new
     end
