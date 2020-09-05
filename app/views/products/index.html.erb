@@ -27,3 +27,20 @@
     <%= link_to product.name, product %>
   </div>
 <% end %>
+
+<!-- product card -->
+
+<% @products.each do |product| %>
+  <div class="card-product">
+    <%= image_tag "cat_rect.jpg", style: 'height:474px;width:296px;margin-bottom:20px;' %>
+    <div class="card-product-infos">
+      <div class = "card-product-name">
+        <%= product.name %>
+      </div>
+      <div class = "card-product-desc">
+        <%= product.description %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
