@@ -20,27 +20,22 @@
   <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
 
-<!-- Page -->
-
-<% @products.each do |product| %>
-  <div>
-    <%= link_to product.name, product %>
-  </div>
-<% end %>
 
 <!-- product card -->
-
-<% @products.each do |product| %>
-  <div class="card-product">
-    <%= image_tag "cat_rect.jpg", style: 'height:474px;width:296px;margin-bottom:20px;' %>
-    <div class="card-product-infos">
-      <div class = "card-product-name">
-        <%= product.name %>
-      </div>
-      <div class = "card-product-desc">
-        <%= product.description %>
+<div class ="container">
+  <% @products.each do |product| %>
+  <div class = "row">
+    <div class="card-product col-sm-4">
+      <%= image_tag "cat_rect.jpg", style: 'height:474px;width:296px;margin-bottom:20px;' %>
+        <div class="card-product-infos">
+          <div class ="card-product-name">
+            <%= link_to product.name.upcase, product %>
+          </div>
+            <div class = "card-product-desc">
+              <%= product.description %>
+            </div>
+        </div>
       </div>
     </div>
-  </div>
-<% end %>
-
+  <% end %>
+</div>
