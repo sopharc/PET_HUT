@@ -16,7 +16,7 @@ class Product < ApplicationRecord
   # Also just did search against name, but you can add category or whatever else
   include PgSearch::Model
   pg_search_scope :global_search,
-    against: [ :name ],
+    against: [ :name, :category ],
     # associated_against: {
     #   description: [ ]
     # },

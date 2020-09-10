@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_25_193101) do
+ActiveRecord::Schema.define(version: 2020_09_08_194757) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,11 +86,14 @@ ActiveRecord::Schema.define(version: 2020_08_25_193101) do
 
   create_table "orders", force: :cascade do |t|
     t.date "order_date"
-    t.string "status"
+    t.string "status", default: "pending"
     t.date "dispatch_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "customer_id"
+    t.string "checkout_session_id"
+    t.bigint "cart_id"
+    t.index ["cart_id"], name: "index_orders_on_cart_id"
     t.index ["customer_id"], name: "index_orders_on_customer_id"
   end
 
@@ -142,6 +145,7 @@ ActiveRecord::Schema.define(version: 2020_08_25_193101) do
   add_foreign_key "line_items", "products"
   add_foreign_key "order_products", "orders"
   add_foreign_key "order_products", "products"
+  add_foreign_key "orders", "carts"
   add_foreign_key "orders", "customers"
   add_foreign_key "product_materials", "components"
   add_foreign_key "product_materials", "products"
