@@ -2,11 +2,6 @@ Rails.application.routes.draw do
 
 
   ActiveAdmin.routes(self)
-  get 'order/new'
-  get 'order/create'
-  get 'order/edit'
-  get 'order/update'
-  get 'order/destroy'
   get 'user/new'
   get 'user/create'
   get 'user/edit'
@@ -29,9 +24,12 @@ Rails.application.routes.draw do
 
   devise_for :users, skip: :all
 
+  resources :orders do
+    resources :payments, only: :new
+  end
 
   resources :customers do
-    resources :orders
+
     resources :addresses, only: [:index, :new, :create, :edit, :update, :destroy]
   end
 

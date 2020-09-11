@@ -1,5 +1,6 @@
 class Cart < ApplicationRecord
   has_many :line_items, dependent: :destroy
+  has_one :order
   # monetize :amount_cents
 
   def add_product(product)
@@ -15,5 +16,13 @@ class Cart < ApplicationRecord
 
   def total_price
     line_items.to_a.sum { |item| item.total_price }
+  end
+
+  def line_items_for_stripe
+    bop = []
+    self.line_items.each do |line_item|
+      bop << {amount: line_item.product.price_cents, quantity: line_item.quantity, currency: 'EUR', name: line_item.product.name }
+    end
+    return bop
   end
 end
