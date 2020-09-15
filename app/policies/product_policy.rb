@@ -6,6 +6,7 @@ class ProductPolicy < ApplicationPolicy
   end
 
   def index?
+
   end
 
   def show?

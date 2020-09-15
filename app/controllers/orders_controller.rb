@@ -15,9 +15,9 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new
     @order.customer = current_user.customer
-    @order.cart_id = @cart.id
+    @order.update(cart_id: @cart.id)
     @order.save
-    order = @order
+
 
     session = Stripe::Checkout::Session.create({
       success_url: 'https://example.com/success',
@@ -28,9 +28,9 @@ class OrdersController < ApplicationController
     })
 
 
-    order.update(checkout_session_id: session.id)
+    @order.update(checkout_session_id: session.id)
 
-    redirect_to new_order_payment_path(order)
+    redirect_to new_order_payment_path(@order)
     authorize @order
   end
 
