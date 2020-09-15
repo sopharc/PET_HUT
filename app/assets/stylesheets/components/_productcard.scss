@@ -1,9 +1,14 @@
+.row {
+}
+
 .container {
   position: relative;
   text-align: right;
   color: black;
   font-family: 'Open Sans', sans-serif;
+  text-decoration: none;
 }
+
 .card-product {
   overflow: hidden;
   background: white;
@@ -11,11 +16,14 @@
   align-items: center;
 }
 
-// .card-product img {
-//   height: 100%;
-//   width: 120px;
-//   object-fit: cover;
-// }
+.card-product a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: black;
+}
 
 .card-product h2 {
   font-size: 16px;
@@ -32,15 +40,16 @@
 
 .card-product-name {
   position: absolute;
-  bottom: 25%;
+  top: 8%;
   right: 20%;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .card-product-desc {
   position: absolute;
-  bottom: 25px;
+  top: 25%;
   right: 20%;
-  font-size: 16px;
+  font-size: 14px;
+  text-align: right;
 }
 
