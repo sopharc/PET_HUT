@@ -8,12 +8,18 @@
   // z-index: 1;
 }
 
+
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
+section.navbar-left {
+  justify-content: left;
+}
+
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 90px;
+  margin: 10px;
 }
 
 // Styling for 'Home, Shop, Blog, Contact us'
@@ -21,6 +27,16 @@ section.navbar-mid {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  background-color: rgba(248, 245, 242, 0.75);
+  height: 40px;
+  padding-right: 50px;
+  padding-left: 50px;
+}
+
+section.navbar-mid li {
+  padding: 40px;
 }
 
 // Positioning for icons on right of navbar
