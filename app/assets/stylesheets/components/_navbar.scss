@@ -15,13 +15,11 @@
 
 section.navbar-left {
   justify-content: left;
-  margin-left: 20px;
-  margin-right: 20px;
 }
 
 .navbar-lewagon .navbar-brand img {
   width: 90px;
-  margin: 10px;
+  // margin: 10px;
 }
 
 // Styling for 'Home, Shop, Blog, Contact us'
@@ -58,3 +56,6 @@ ul.navbar-nav .nav-link {
   padding: 0 0 0 1rem;
 }
 
+.icon-box {
+  width: 90px;
+}
