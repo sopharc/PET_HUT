@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon" style = "display: flex; justify-content: space-between;">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon" style = "display: flex; justify-content: space-between; margin: 10px;">
 
   <!-- logo on left of navbar -->
 
@@ -64,9 +64,11 @@
 
         <% else %>
 
-          <li>
-            <%= link_to "", new_user_session_path, class: "nav-link far fa-user" %>
-          </li>
+          <div class="icon-box">
+            <li>
+              <%= link_to "", new_user_session_path, class: "nav-link far fa-user" %>
+            </li>
+          </div>
 
         <% end %>
 
