@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   resources :carts, only: [:new, :create, :show, :destroy]
   resources :line_items, only: [:new, :create, :destroy]
 
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
+
 
   resources :products, only: [:index, :show]
 
