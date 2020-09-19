@@ -1,6 +1,3 @@
-<% breadcrumb :products %>
-
-<h1>Product#index</h1>
 
 <!-- Filter  -->
 
@@ -20,24 +17,32 @@
   <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
 
+<% breadcrumb :products %>
 
 <!-- product card -->
 
 <div class ="container">
     <div class = "row">
       <% @products.each do |product| %>
+
           <div class="card-product col-sm-4">
-            <%= image_tag "cat_rect.jpg", style: 'height:474px;width:296px;margin-bottom:20px;' %>
-              <div class="card-product-infos">
-                <div class ="card-product-name">
-                  <hr style="border: 0.25px solid black;" />
-                  <%= link_to product.name.upcase, product %>
-                </div>
-                  <div class = "card-product-desc">
-                    <%= product.description %>
+
+            <div class= "image-text-box" style='display: block; margin-left: auto; margin-right: auto; width: 100%;'>
+               <%= image_tag "cat_rect.jpg", style: 'height:474px;width:296px;margin-bottom:20px;' %>
+
+                <div class="card-product-infos" >
+                  <div class ="card-product-name">
+                    <hr style="border: 0.25px solid black;" />
+                    <%= link_to product.name.upcase, product %>
                   </div>
-              </div>
+                     <div class = "card-product-desc">
+                        <%= product.description %>
+                    </div>
+                </div>
             </div>
+
+            </div>
+
         <% end %>
     </div>
 </div>
