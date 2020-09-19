@@ -25,6 +25,7 @@
       <% @products.each do |product| %>
 
           <div class="card-product col-sm-4">
+            <%= link_to(product_path(product)) do %>
 
             <div class= "image-text-box" style='display: block; margin-left: auto; margin-right: auto; width: 100%;'>
                <%= image_tag "cat_rect.jpg", style: 'height:474px;width:296px;margin-bottom:20px;' %>
@@ -39,8 +40,8 @@
                     </div>
                 </div>
             </div>
-
-            </div>
+            <% end %>
+          </div>
 
         <% end %>
     </div>

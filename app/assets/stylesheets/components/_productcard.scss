@@ -53,10 +53,17 @@ a:hover {
 }
 
 .card-product-desc {
+  width: 296px;
   position: absolute;
   top: 25%;
   right: 20%;
   font-size: 14px;
   text-align: right;
+}
+
+.card-product-infos {
+  width: 100%;
+  margin-left: 20px;
+  margin-right: auto;
 }
 
