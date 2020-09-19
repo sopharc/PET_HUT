@@ -2,6 +2,7 @@
 
   <h1>Product#index</h1>
 
+
   <!-- Filter  -->
 
   <%= form_tag products_path, method: :get do %>
@@ -20,15 +21,18 @@
     <%= submit_tag "Search", class: "btn btn-primary" %>
   <% end %>
 
+<!-- product card -->
+<div class ="container">
+    <div class = "row">
+      <% @products.each do |product| %>
 
-  <!-- product card -->
+          <div class="card-product col-sm-4">
+            <%= link_to(product_path(product)) do %>
 
-  <div class ="container">
-      <div class = "row">
-        <% @products.each do |product| %>
-            <div class="card-product col-sm-4">
-              <%= image_tag "cat_rect.jpg", style: 'height:474px;width:296px;margin-bottom:20px;' %>
-                <div class="card-product-infos">
+            <div class= "image-text-box" style='display: block; margin-left: auto; margin-right: auto; width: 100%;'>
+               <%= image_tag "cat_rect.jpg", style: 'height:474px;width:296px;margin-bottom:20px;' %>
+
+                <div class="card-product-infos" >
                   <div class ="card-product-name">
                     <hr style="border: 0.25px solid black;" />
                     <%= link_to product.name.upcase, product %>
@@ -41,3 +45,4 @@
           <% end %>
       </div>
   </div>
+                     <

@@ -16,6 +16,13 @@
   align-items: center;
 }
 
+.card-product .image-text-box img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
 .card-product a {
   color: black;
   text-decoration: none;
@@ -46,10 +53,17 @@ a:hover {
 }
 
 .card-product-desc {
+  width: 296px;
   position: absolute;
   top: 25%;
   right: 20%;
   font-size: 14px;
   text-align: right;
+}
+
+.card-product-infos {
+  width: 100%;
+  margin-left: 20px;
+  margin-right: auto;
 }
 
