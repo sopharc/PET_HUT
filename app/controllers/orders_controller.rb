@@ -20,8 +20,8 @@ class OrdersController < ApplicationController
 
 
     session = Stripe::Checkout::Session.create({
-      success_url: 'https://example.com/success',
-      cancel_url: 'https://example.com/cancel',
+      success_url: 'https://pet-hut.herokuapp.com/',
+      cancel_url: 'https://pet-hut.herokuapp.com/pages/failure',
       payment_method_types: ['card'],
       line_items: @cart.line_items_for_stripe,
       mode: 'payment',
