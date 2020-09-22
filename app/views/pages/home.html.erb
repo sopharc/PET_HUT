@@ -8,10 +8,10 @@
     <%= form_tag products_path, method: :get do %>
      <%= text_field_tag :query,
        params[:query],
-         class: "form-control",
+         class: "form-control" id="form-control-overrides",
          placeholder: "Find a product"
        %>
-     <%= submit_tag "Search", class: "btn btn-primary" %>
+     <%= submit_tag "Search", class: "btn btn-light" %>
    <% end %>
 
   </div>
