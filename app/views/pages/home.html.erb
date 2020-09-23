@@ -5,14 +5,18 @@
     <div class="beige-box">
     </div>
 
+
+  <div class = "search-box-container">
     <%= form_tag products_path, method: :get do %>
-     <%= text_field_tag :query,
-       params[:query],
-         class: "form-control" id="form-control-overrides",
-         placeholder: "Find a product"
-       %>
-     <%= submit_tag "Search", class: "btn btn-light" %>
-   <% end %>
+       <%= text_field_tag :query,
+          params[:query],
+            class: "form-control",
+            placeholder: "Find a product"
+          %>
+       <%= submit_tag "Search", class: "btn btn-light" %>
+     <% end %>
+  </div>
+
 
   </div>
 
