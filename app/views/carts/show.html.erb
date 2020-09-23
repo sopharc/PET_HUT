@@ -1,25 +1,49 @@
 <% breadcrumb @cart%>
 
 
-<h1>Cart#show</h1>
-<div>
-  <%= link_to 'Keep shopping', products_path %>
-</div>
 
-<section>
-  <%= render(@cart.line_items) %>
 
-  <div>
-    <div>
-      <%= button_to 'Empty Cart', @cart, method: :delete, data: { confirm: "Are you sure?"} %>
+
+<div class="big-box">
+  <div class="page-intro" >Review Basket</div>
+  <% @cart.line_items.each do |line_item| %>
+  <div class="border-box">
+    <div class="image-box">
+      <%= image_tag "hut_rect.jpg", style: 'height:198px;width:180px;' %>
     </div>
-    <div>
-      <h4>
-        <span>Total:</span> <%= humanized_money_with_symbol(@cart.total_price) %>
-      </h4>
+    <div class="contents">
+      <div class="cart-name"><%= line_item.product.name %></div>
+      <div class="deets"><%= line_item.product.description %></div>
+      <div class="deets"><%= line_item.product.dimensions %></div>
+      <div class="delete-deets">
+        <div class="spacings">
+          <i class="fa fa-trash" aria-hidden="true"></i>
+        </div>
+        <div class="numbers spacings">
+          <%= line_item.quantity %>
+        </div>
+        <div class="spacings">
+          <%= button_to '+', line_items_path(product_id: line_item.product.id), class: 'empty-button' %>
+        </div>
+      </div>
     </div>
+
+  </div>
+  <% end %>
+  <div class="destroyer">
+    <%= button_to 'Remove All Products', @cart, method: :delete, data: { confirm: "Are you sure?"}, class: 'empty-button' %>
+  </div>
+  <div class="subtotal">
+    <div>Subtotal</div>
+    <div><%= humanized_money_with_symbol(@cart.total_price) %></div>
   </div>
 
-  <%= form_tag orders_path do %>
-    <%= submit_tag 'Checkout', class: 'btn btn-primary' %>
-  <% end %>
+  <div class="buttons-box">
+    <div class="button-light-fill keep-shopping">
+      <%= link_to 'Keep shopping', products_path %>
+    </div>
+    <%= form_tag orders_path do %>
+      <%= submit_tag 'Checkout', class: 'button-light' %>
+    <% end %>
+  </div>
+</div>
