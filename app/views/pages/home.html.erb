@@ -7,12 +7,14 @@
 
 
   <div class = "search-box-container">
+    <div class = "form-container">
     <%= form_tag products_path, method: :get do %>
        <%= text_field_tag :query,
           params[:query],
-            class: "form-control",
+            class: "form-cont",
             placeholder: "Find a product"
           %>
+          </div>
        <%= submit_tag "Search", class: "btn btn-light" %>
      <% end %>
   </div>

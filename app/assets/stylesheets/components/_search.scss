@@ -1,7 +1,14 @@
-.form-control {
-  padding: 40px;
-  background-color: red;
+.form-cont {
+  width: 90%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 40px;
   color: black;
+  border-radius: 8px;
+}
+
+::placeholder {
+  padding: 15px;
 }
 
 .search-box-container {
