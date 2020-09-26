@@ -1,25 +1,28 @@
  <% breadcrumb :products %>
 
-  <h1>Product#index</h1>
-
-
-  <!-- Filter  -->
-
-  <%= form_tag products_path, method: :get do %>
-    <%= select_tag :filter, options_for_select(@categories, "category"), include_blank: true %>
-    <%= submit_tag "Filter" %>
-  <% end %>
-
   <!-- Search -->
 
-  <%= form_tag products_path, method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Find a product"
-    %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
-  <% end %>
+  <div class ="container">
+      <div class="row">
+        <div class="col-sm-4">
+        </div>
+        <div class="col-sm-4">
+            <h4>All Products</h4>
+
+        </div>
+        <div class="search-box col-sm-4">
+            <%= form_tag products_path, method: :get do %>
+              <%= text_field_tag :query,
+                params[:query],
+                class: "form-index",
+                placeholder: "Find a product"
+              %>
+              <%= submit_tag "Search", class: "button-light", style: "display: none;" %>
+            <% end %>
+            </div>
+     </div>
+  </div>
+
 
 <!-- product card -->
 <div class ="container">

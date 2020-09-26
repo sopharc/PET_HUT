@@ -11,11 +11,11 @@
     <%= form_tag products_path, method: :get do %>
        <%= text_field_tag :query,
           params[:query],
-            class: "form-cont",
+            class: "form-home",
             placeholder: "Find a product"
           %>
           </div>
-       <%= submit_tag "Search", class: "button-light-fill" %>
+       <%= submit_tag "Search", class: "button-light" %>
      <% end %>
   </div>
 
