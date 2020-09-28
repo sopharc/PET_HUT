@@ -1,11 +1,46 @@
 <% breadcrumb @product %>
 
+  <div class="product-box">
+    <div class="product-show-images">
+      <div class="big-image image-border">
+        <%= image_tag "cat_rect.jpg", style: 'height:400px;width:360px;' %>
+      </div>
+      <div>
+        <div class="image-border">
+          <%= image_tag "hut_rect.jpg", style: 'height:198px;width:180px;' %>
+        </div>
+        <div class="image-border">
+          <%= image_tag "bed_rect.jpg", style: 'height:198px;width:180px;' %>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="name-holder">
+        <div class="name-text">
+          <%= @product.name %>
+        </div>
+        <div class="price-text">
+          <%= humanized_money_with_symbol(@product.price) %>
+          <br>
+
+        </div>
+      </div>
+      <div class="name-holder">
+        <div>
+          <%= @product.description %>
+          <br>
+          <%= @product.dimensions %>
+        </div>
+        <div>
+          <%= button_to '+', line_items_path(product_id: @product.id), class: 'empty-button' %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 <div style="margin-left: 200px">
-  <h1><strong><em><%= @product.name %></strong></em></h1>
-  <h2><%= @product.category %></h2>
-  <p>£<%= @product.price %></p>
-  <p><strong>DESCRIPTION</strong> <%= @product.description %></p>
-  <p><strong>DIMENSIONS</strong> <%= @product.dimensions %> </p>
+
   <%= @product.category %><BR>
   <%= button_to 'Add to cart', line_items_path(product_id: @product.id) %>
   <%= link_to "Back to all products", products_path %>
