@@ -57,3 +57,20 @@
   padding: 0;
 }
 
+.button-dark {
+  text-decoration: none;
+  padding: 8px 24px;
+  color: $white;
+  background-color: $dark-beige;
+  border: 1px solid $dark-beige;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: 0.5s;
+  &:hover {
+    text-decoration: none;
+    color: $white;
+    background-color: $dark-beige;
+    border: 1px solid $dark-beige;
+    transition: 0.5s;
+  }
+}
