@@ -9,6 +9,11 @@
   margin: 0 auto;
 }
 
+.product-width{
+  width: 60%;
+  margin: 0 auto;
+}
+
 .product-show-images {
   display: flex;
 }
@@ -18,7 +23,6 @@
 }
 
 .name-holder {
-  width: 60%;
   display: flex;
   justify-content: space-between;
 }
@@ -35,4 +39,25 @@
 
 .materials-box {
 
+}
+
+.link-box {
+  width: 60%;
+  margin-top: 40px;
+}
+
+.link-box a {
+  color: $brown;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.big-plus {
+  font-size: 32px;
+  font-weight: 700;
+  color: $brown;
+}
+
+.right-pad {
+  padding-right: 20px;
 }
