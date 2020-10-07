@@ -6,8 +6,9 @@
   width: 70rem;
   margin: 0 auto;
 }
+
 .picture {
-  width: 39rem;
+  width: 935px;
   height: 60rem;
   background-size: cover;
   background-image: asset-url('cat_rect.jpg');
@@ -21,6 +22,7 @@
 .beige-box {
   background-color: #EBDBCC;
   height: 18rem;
+  width: -20rem;
   margin: 8rem 0;
 }
 
@@ -44,7 +46,7 @@
 }
 
 .second-half {
-  color: $pale-beige;
+  color: $beige;
   display: block;
   position: absolute;
   width: 48rem;
