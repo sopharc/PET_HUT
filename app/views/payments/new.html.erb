@@ -3,9 +3,21 @@
   <div class="row py-4">
 
     <div class="col">
-      <h1>Checkout summary</h1>
-
-      <button id="pay" class="btn btn-primary">Pay</button>
+      <h2 class="text-left pl-5">Checkout summary</h1>
+      <div class="line-summary mx-3">
+        <div class="quant text-center">Quantity</div>
+        <div class="title text-center">Item</div>
+        <div class="cost text-center">Cost</div>
+      </div>
+      <% @cart.line_items.each do |line_item| %>
+        <div class="line-summary mx-3">
+          <div class="quant text-center"><%= line_item.quantity %> </div>
+          <div class="title text-center"><%= line_item.product.name %></div>
+          <div class="cost text-center"><%= humanized_money_with_symbol(line_item.total_price) %></div>
+        </div>
+      <% end %>
+      <div class="my-3">TOTAL <%= humanized_money_with_symbol(@cart.total_price) %></div>
+      <button id="pay" class="px-4 button-dark-fill">Pay</button>
 
       <script src="https://js.stripe.com/v3/"></script>
       <script>

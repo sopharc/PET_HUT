@@ -32,19 +32,22 @@
   font-size: 3rem;
 }
 
-.second-half {
+.first-half {
   color: $brown;
   position: relative;
   display: inline-block;
   width: 20rem;
-  z-index: 1;
+  z-index: 3;
   overflow: hidden;
   height: 4rem;
+  white-space: nowrap;
 }
 
-.first-half {
+.second-half {
   color: $pale-beige;
   display: block;
   position: absolute;
   width: 48rem;
+  z-index: 2;
+  white-space: nowrap;
 }
