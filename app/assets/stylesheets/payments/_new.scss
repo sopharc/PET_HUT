@@ -1,0 +1,17 @@
+.line-summary {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid $beige;
+}
+
+.quant {
+  width: 20%;
+}
+
+.title {
+  width: 40%;
+}
+
+.cost {
+  width: 20%;
+}
