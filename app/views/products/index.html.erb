@@ -1,12 +1,10 @@
+ <!-- Search -->
 
-
-  <!-- Search -->
-
-  <div class ="container" style="padding-top: 100px;">
+  <div class ="container" style="padding-top: 60px;">
       <div class="row">
         <div class="col-sm-4">
         </div>
-        <div class="col-sm-4">
+        <div class="product-title col-sm-4">
             <h4>All Products</h4>
 
         </div>
@@ -32,14 +30,14 @@
             <%= link_to(product_path(product)) do %>
             <div class= "image-text-box" style='display: block; margin-left: auto; margin-right: auto; width: 100%;'>
                <%= image_tag "cat_rect.jpg", style: 'height:474px;width:350px;margin-bottom:20px;' %>
-                    <div class="card-product-infos" >
+                    <!-- <div class="card-product-infos" > -->
                         <div class ="card-product-name">
                            <hr style="border: 0.25px solid black;" />
                           <%= link_to product.name.upcase, product %>
                          </div>
                          <div class = "card-product-desc">
                             <%= product.description %>
-                         </div>
+                         <!-- </div> -->
                     </div>
                 </div>
           <% end %>
