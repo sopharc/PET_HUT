@@ -6,26 +6,10 @@
   text-align: right;
   color: black;
   font-family: 'Open Sans', sans-serif;
-  text-decoration: none;
-}
-
-.card-product {
-  overflow: hidden;
-  background: white;
-  display: flex;
-  align-items: center;
-}
-
-.card-product .image-text-box img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
 }
 
 .card-product a {
   color: black;
-  text-decoration: none;
 }
 
 a:hover {
@@ -47,24 +31,42 @@ a:hover {
 
 .card-product-name {
   position: absolute;
-  top: 8%;
-  right: 20%;
-  font-size: 14px;
+  top: 6%;
+  right: 10%;
+  font-size: 13px;
+}
+
+.card-product-name a{
+  text-decoration: none;
 }
 
 .card-product-desc {
   width: 350px;
   position: absolute;
-  top: 25%;
-  right: 20%;
-  font-size: 14px;
+  top: 22%;
+  right: 10%;
+  font-size: 13px;
   text-align: right;
   padding-left: 40%;
 }
 
-.card-product-infos {
-  width: 100%;
-  margin-left: 20px;
-  margin-right: auto;
-}
 
+// .card-product-infos {
+//   width: 100%;
+//   margin-left: 20px;
+//   margin-right: auto;
+// }
+
+// .card-product {
+//   overflow: hidden;
+//   background: white;
+//   display: flex;
+//   align-items: center;
+// }
+
+// .card-product .image-text-box img {
+//   display: block;
+//   margin-left: auto;
+//   margin-right: auto;
+//   width: 100%;
+// }
