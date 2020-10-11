@@ -1,0 +1,22 @@
+<h1 class="blog-title text-center">Our Blog</h1>
+
+
+<div class="container">
+  <div class="row">
+    <% @blogposts.each do |blogpost| %>
+      <div class="col-xs-8 text-left">
+        <h2><%= blogpost.title %></h2>
+        <br>
+        <div>
+          <%= blogpost.content %>
+        </div>
+        <br>
+        <hr>
+      </div>
+    <% end %>
+    <div class="blog-links text-center">
+      <%= link_to "Previous Page", blog_posts_path(page: @page - 1) %> |
+      <%= link_to "Next Page", blog_posts_path(page: @page + 1) %>
+    </div>
+  </div>
+</div>
