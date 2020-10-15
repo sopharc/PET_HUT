@@ -1,20 +1,20 @@
-crumb :root do
-  link "Home", home_path
-end
+# crumb :root do
+#   link "Home", home_path
+# end
 
-crumb :products do
-  link "Products", products_path
-end
+# crumb :products do
+#   link "Products", products_path
+# end
 
-crumb :product do |product|
-  link product.name, product_path(product)
-  parent :products
-end
+# crumb :product do |product|
+#   link product.name, product_path(product)
+#   parent :products
+# end
 
-crumb :cart do |cart|
-  link "Cart", cart_path(cart)
-  parent :products
-end
+# crumb :cart do |cart|
+#   link "Cart", cart_path(cart)
+#   parent :products
+# end
 
 # If you want to split your breadcrumbs configuration over multiple files, you
 # can create a folder named `config/breadcrumbs` and put your configuration
