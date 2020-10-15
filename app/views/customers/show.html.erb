@@ -1,6 +1,22 @@
 <h1>Hello <%= @customer.first_name %> <%= @customer.last_name %></h1>
 
-<p><%= @customer.phone_number %></p>
+<p>Phone Number: <%= @customer.phone_number %></p>
 
-<%= link_to "Add Address", new_customer_address_path %>
+<p>
+  Email: <%= @customer.user.email %>
+</p>
+<p>
+  <h3>Addresses</h3>
+  <% @customer.addresses.each_with_index do |address, index| %>
+   <%= "Address #{index + 1}" %> <br>
+    First line: <%= address.first_line  %> <br>
+    First line: <%= address.second_line  %> <br>
+    First line: <%= address.optional_line  %> <br>
+    Postcode: <%= address.postcode  %>
+    <hr>
+  <% end %>
+</p>
+
+<%= link_to "Add Address", new_customer_address_path(@customer) %>
+
 

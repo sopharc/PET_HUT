@@ -8,13 +8,15 @@ skip_before_action :authenticate_user!, only: [:new]
   end
 
   def show
+    @customer = Customer.find(params[:id])
     authorize @customer
   end
 
 
   def create
     @customer = Customer.new(customer_params)
-    @customer.user_id = current_user
+
+    @customer.user_id = current_user.id
 
     authorize @customer
 
