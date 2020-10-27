@@ -19,9 +19,8 @@ skip_before_action :authenticate_user!, only: [:new]
     @customer.user_id = current_user.id
 
     authorize @customer
-
     if @customer.save
-       mail = UserMailer.with(user: @user).welcome
+       mail = UserMailer.with(user: current_user).welcome
        mail.deliver_now
       redirect_to products_path, notice: 'Account successfully created!'
     else
